@@ -19,13 +19,18 @@ html {
   scroll-behavior: smooth;
 }
 
+button,
+a {
+  min-width: 44px;
+  min-height: 44px;
+}
+
 .skip-link {
   position: absolute;
   top: -80px;
   left: 0;
   background-color: $primary-color;
   color: $fourth-color;
-  padding: 8px;
   z-index: 130;
 }
 
@@ -79,10 +84,13 @@ html {
         list-style-type: none;
         margin-right: 1.5rem;
         margin-left: 1.5rem;
+        min-width: 44px;
+        min-height: 44px;
 
         a {
           color: $fourth-color;
           text-decoration: none;
+          padding: 0.5rem 0.3rem;
 
           &:hover {
             border-bottom: 2px solid;
@@ -121,6 +129,8 @@ html {
         color: white;
         text-decoration: none;
         border-bottom: 2px solid;
+        padding: 0.35rem 0.35rem;
+        font-size: 1.2rem;
       }
     }
   }
@@ -261,6 +271,7 @@ html {
   a {
     color: $third-color;
     text-decoration: none;
+    padding: 0.3rem 0;
   }
 }
 
