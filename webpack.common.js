@@ -12,17 +12,44 @@ module.exports = {
     rules: [
       {
         test: /\.s[ac]ss$/i,
+        exclude: /styles/,
         use: [
+          'to-string-loader',
+          'css-loader',
+          'sass-loader',
           {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'sass-loader',
+            loader: 'sass-resources-loader',
+            options: {
+              resources: './src/styles/resources.scss',
+            },
           },
         ],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        include: /styles/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: './src/styles/resources.scss',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.html$/,
+        include: [
+          path.resolve(__dirname, 'src/scripts/views/components'),
+        ],
+        use: ['html-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
       },
     ],
   },

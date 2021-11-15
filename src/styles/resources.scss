@@ -1,0 +1,41 @@
+$screen-xs: 540px;
+$screen-sm: 550px;
+$screen-md: 768px;
+$screen-lg: 1024px;
+$screen-xl: 1280px;
+
+$primary-color: #8AB6D6;
+$secondary-color: #114E60;
+$third-color: #0061A8;
+$fourth-color: #FBE0C4;
+
+
+@mixin xs {
+  @media (max-width : #{$screen-xs}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width : #{$screen-sm}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: #{$screen-md}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$screen-lg}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: #{$screen-xl}) {
+    @content;
+  }
+}

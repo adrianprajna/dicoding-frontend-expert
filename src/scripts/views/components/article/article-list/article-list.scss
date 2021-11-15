@@ -1,0 +1,27 @@
+.article__section {
+
+    .article__section__title {
+        text-align: center;
+        color: $secondary-color;
+    }
+
+    .articles {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 2rem;
+
+        @include md {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include lg {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+
+    @include xl {
+        width: 80%;
+        margin: auto;
+    }
+}
