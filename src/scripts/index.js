@@ -3,6 +3,7 @@ import '../styles/main.scss';
 import './views/components/app-bar/app-bar';
 import './views/components/footer/footer';
 import App from './views/App';
+import swRegister from './utils/sw-register';
 
 const app = new App({
   content: document.querySelector('#main-content'),
@@ -14,4 +15,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
+  swRegister();
 });

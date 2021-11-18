@@ -1,0 +1,36 @@
+.favorite-restaurants {
+    padding: 1.5rem;
+
+    .no-favorite-restaurant {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+
+            @include lg {
+                width: 80%;
+            }
+
+            @include xl {
+                width: 50%;
+            }
+        }
+
+        h2 {
+            font-size: 1.25rem;
+
+            @include lg {
+                font-size: 1.5rem;
+            }
+
+            @include xl {
+                font-size: 1.75rem;
+            }
+        }
+    }
+}

@@ -21,13 +21,14 @@ class ArticleCard extends HTMLElement {
   render() {
     this._removeLoading();
     const articleImage = this.shadowRoot.querySelector('.article-item__thumbnail');
-    const articleName = this.shadowRoot.querySelector('.article-item__title');
+    const articleName = this.shadowRoot.querySelector('.article-item__name');
     const articleCity = this.shadowRoot.querySelector('.article-item__city');
     const articleDescription = this.shadowRoot.querySelector('.article-item__description');
     const articleRating = this.shadowRoot.querySelector('.article-item__value');
 
     articleImage.src = `${API_ENDPOINT.restaurantImage}/${this._article.pictureId}`;
-    articleName.innerHTML = `<a href="#">${this._article.name}</a>`;
+    articleName.innerHTML = `${this._article.name}`;
+    articleName.href = `/#/detail/${this._article.id}`;
     articleDescription.innerHTML = truncate(this._article.description);
     articleCity.innerHTML = this._article.city;
     articleRating.innerHTML = this._article.rating;

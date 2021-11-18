@@ -7,15 +7,23 @@ class RestaurantData {
     return responseJson.restaurants;
   }
 
-  static async upcomingMovies() {
-    const response = await fetch(API_ENDPOINT.UPCOMING);
+  static async getDetail(id) {
+    const response = await fetch(API_ENDPOINT.restaurant(id));
     const responseJson = await response.json();
-    return responseJson.results;
+    return responseJson.restaurant;
   }
 
-  static async detailMovie(id) {
-    const response = await fetch(API_ENDPOINT.DETAIL(id));
-    return response.json();
+  static async addReview(review) {
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(review),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    const response = await fetch(API_ENDPOINT.review, options);
+    const responseJson = await response.json();
+    return responseJson;
   }
 }
 

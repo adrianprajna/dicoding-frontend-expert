@@ -1,0 +1,23 @@
+.review {
+    display: flex;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    background-color: whitesmoke;
+
+    img {
+        width: 50px;
+        height: 50px;
+        margin-right: 0.5rem;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .review-content__name {
+        font-weight: bold;
+    }
+}

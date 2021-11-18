@@ -16,8 +16,11 @@ class AppBar extends HTMLElement {
     const navDrawer = this.shadowRoot.querySelector('.drawer');
     const openDrawerButton = this.shadowRoot.querySelector('.hamburger__button');
     const closeDrawerButton = this.shadowRoot.querySelector('.close__button');
+    const navLinks = this.shadowRoot.querySelectorAll('.nav-link');
 
-    DrawerInitiator.init({ drawer: navDrawer, openDrawerButton, closeDrawerButton });
+    DrawerInitiator.init({
+      drawer: navDrawer, openDrawerButton, closeDrawerButton, navLinks,
+    });
   }
 }
 

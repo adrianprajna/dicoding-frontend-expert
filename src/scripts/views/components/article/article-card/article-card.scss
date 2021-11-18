@@ -19,12 +19,25 @@
     }
 
     .article-item__content {
-        padding: 1rem;
+        padding: 0 1rem 1rem 1rem;
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
 
         .article-item__header {
             display: flex;
             align-items: center;
             justify-content: space-between;
+
+            .article-item__title {
+                a {
+                    color: $third-color;
+                    text-decoration: none;
+                    padding: 0.3rem 0;
+                }
+            }
 
             .article-item__location {
                 display: flex;
@@ -58,15 +71,7 @@
     }
 }
 
-.article-item__title {
-    margin-bottom: 0.5rem;
 
-    a {
-        color: $third-color;
-        text-decoration: none;
-        padding: 0.3rem 0;
-    }
-}
 
 .skeleton {
     opacity: 0.7;

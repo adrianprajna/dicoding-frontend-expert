@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
+const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -43,7 +45,7 @@ module.exports = {
       {
         test: /\.html$/,
         include: [
-          path.resolve(__dirname, 'src/scripts/views/components'),
+          path.resolve(__dirname, 'src/scripts/views'),
         ],
         use: ['html-loader'],
       },
@@ -65,6 +67,31 @@ module.exports = {
           to: path.resolve(__dirname, 'dist/'),
         },
       ],
+    }),
+    new WebpackPwaManifest({
+      filename: 'manifest.json',
+      name: 'FoodHut',
+      short_name: 'FoodHut',
+      description: 'My Progressive Restaurant Catalogue Web App!',
+      background_color: '#ffffff',
+      theme_color: '#114E60',
+      crossorigin: 'use-credentials',
+      start_url: '/',
+      display: 'standalone',
+      ios: true,
+      fingerprints: false,
+      inject: true,
+      icons: [
+        {
+          src: path.resolve('src/public/images/icons/icon-512x512.png'),
+          sizes: [96, 128, 192, 256, 384, 512],
+          destination: 'icons',
+        },
+      ],
+    }),
+    new InjectManifest({
+      swSrc: './src/scripts/src-sw.js',
+      swDest: 'sw.js',
     }),
   ],
 };

@@ -1,0 +1,22 @@
+.error-page {
+    display: flex;
+    flex-direction: column;
+
+    img {
+        width: 100%;
+
+        @include lg {
+            width: 60%;
+        }
+
+        @include xl {
+            width: 40%;
+        }
+    }
+
+    @include lg {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+}

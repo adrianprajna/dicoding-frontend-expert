@@ -1,0 +1,157 @@
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 1rem 0;
+
+    @include lg {
+        padding: 2rem 0;
+    }
+
+    .restaurant-detail {
+        display: grid;
+
+        @include lg {
+            grid-template-columns: 1.5fr 2fr;
+            grid-column-gap: 2rem;
+        }
+
+        .restaurant-detail__image {
+            width: 100%;
+            margin-bottom: 0.5rem;
+            object-fit: cover;
+            border-radius: 0.5rem;
+
+            @include md {
+                height: 25rem;
+            }
+
+            @include lg {
+                height: 20rem;
+            }
+        }
+
+        .restaurant-detail__name {
+            margin-bottom: .5rem;
+            color: $secondary-color;
+        }
+
+        .restaurant-detail__location {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+
+            img {
+                width: 20px;
+                margin-right: .5rem;
+            }
+
+
+            .restaurant-detail__address {
+                margin-right: 0.5rem;
+            }
+        }
+
+
+        .restaurant-detail__description {
+            text-align: justify;
+            margin-bottom: 0.75rem;
+        }
+
+        .restaurant-detail__categories {
+            span {
+                background-color: $secondary-color;
+                color: $fourth-color;
+                border-radius: 0.5rem;
+                padding: 0.375rem 0.5rem;
+                margin-right: 0.5rem;
+            }
+        }
+    }
+
+    .restaurant-menu {
+        .menu-list {
+            @include md {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-column-gap: 1rem;
+            }
+
+            @include lg {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            @include xl {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+    }
+
+    .customer-reviews {
+        margin-top: 1rem;
+        .review-list {
+            @include md {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-column-gap: 1rem;
+            }
+
+            @include xl {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    }
+
+    h2 {
+        text-align: center;
+        padding: 1rem 0;
+        color: $secondary-color;
+    }
+
+    form {
+        .form-review {
+            margin-bottom: 0.5rem;
+    
+            label {
+                display: block;
+                font-size: 1.15rem;
+                margin-bottom: 0.3rem;
+                font-weight: bold;
+                color: $secondary-color;
+            }
+    
+            input[type="text"], textarea{
+                width: 100%;
+                padding: 0.75rem;
+            }
+    
+            
+        }
+
+        .btn__submit {
+            padding: 0.75rem;
+            border: 0;
+            border-radius: 0.375rem;
+            background-color: $secondary-color;
+            color: $fourth-color;
+            cursor: pointer;
+            width: 100%;
+        }
+    }
+}
+
+.like {
+    font-size: 18px;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    background-color: #db0000;
+    color: white;
+    border: 0;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

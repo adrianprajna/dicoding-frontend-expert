@@ -23,15 +23,11 @@ class ArticleList extends HTMLElement {
     this._title = title;
   }
 
-  set card(card) {
-    this._card = card;
-  }
-
   render() {
     const articleTitle = this.shadowRoot.querySelector('.article__section__title');
     this._articleContainer.innerHTML = '';
     this._articles.forEach((article) => {
-      const articleItem = document.createElement(this._card);
+      const articleItem = document.createElement('article-card');
       articleItem.article = article;
       this._articleContainer.appendChild(articleItem);
     });
