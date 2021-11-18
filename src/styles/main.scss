@@ -19,10 +19,19 @@ a {
   min-height: 44px;
 }
 
-.optimized {
-  min-width: 44px;
-  min-height: 44px;
+.skip-link {
+  position: absolute;
+  top: -80px;
+  left: 0;
+  background-color: $primary-color;
+  color: $fourth-color;
+  z-index: 130;
 }
+
+.skip-link:focus {
+  top: 0;
+}
+
 
 .content {
   background-color: whitesmoke;

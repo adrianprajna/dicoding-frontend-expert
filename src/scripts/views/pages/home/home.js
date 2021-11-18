@@ -14,7 +14,6 @@ const Home = {
 
   async _renderRestaurant() {
     const restaurants = await RestaurantData.getAll();
-    console.log(restaurants);
     const restaurantContent = document.querySelector('#restaurant-content');
     const restaurantList = createListTemplate({ data: restaurants, title: 'Explore Restaurant' });
     restaurantContent.appendChild(restaurantList);
