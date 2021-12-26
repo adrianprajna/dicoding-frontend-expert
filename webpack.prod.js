@@ -21,7 +21,9 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-    new BundleAnalyzierPlugin.BundleAnalyzerPlugin(),
+    new BundleAnalyzierPlugin.BundleAnalyzerPlugin({
+      analyzerMode: 'disabled',
+    }),
   ],
   optimization: {
     splitChunks: {
