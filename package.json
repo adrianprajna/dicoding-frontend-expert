@@ -6,8 +6,10 @@
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
+    "build-image": "node sharp.js",
     "test": "karma start",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "e2e": "codeceptjs run --steps"
   },
   "keywords": [],
   "author": "adrian <concepstaradrian@gmai.com>",
@@ -16,6 +18,7 @@
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "codeceptjs": "^3.2.2",
     "copy-webpack-plugin": "^6.0.3",
     "css-loader": "^3.6.0",
     "eslint": "^7.32.0",
@@ -24,6 +27,9 @@
     "file-loader": "^6.2.0",
     "html-loader": "^1.3.2",
     "html-webpack-plugin": "^4.3.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-webpack-plugin": "^2.4.2",
     "jasmine-ajax": "^4.0.0",
     "jasmine-core": "^3.5.0",
     "karma": "^5.1.0",
@@ -32,12 +38,16 @@
     "karma-jasmine": "^3.3.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^4.0.2",
+    "mini-css-extract-plugin": "^1.6.2",
+    "puppeteer": "^13.0.0",
     "sass": "^1.43.3",
     "sass-loader": "^10.2.0",
     "sass-resources-loader": "^2.2.4",
+    "sharp": "^0.29.3",
     "style-loader": "^1.2.1",
     "to-string-loader": "^1.1.6",
     "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.0.9",
@@ -47,6 +57,7 @@
   },
   "dependencies": {
     "idb": "^6.1.5",
+    "lazysizes": "^5.3.2",
     "regenerator-runtime": "^0.13.5"
   }
 }

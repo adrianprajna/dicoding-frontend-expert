@@ -3,6 +3,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const { InjectManifest } = require('workbox-webpack-plugin');
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozjpeg = require('imagemin-mozjpeg');
+const ImageminPngQuant = require('imagemin-pngquant');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -31,7 +35,7 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         include: /styles/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',
           {
@@ -65,8 +69,14 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
+          globOptions: {
+            ignore: ['**/images/heros/**'],
+          },
         },
       ],
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash].css',
     }),
     new WebpackPwaManifest({
       filename: 'manifest.json',
@@ -92,6 +102,17 @@ module.exports = {
     new InjectManifest({
       swSrc: './src/scripts/src-sw.js',
       swDest: 'sw.js',
+    }),
+    new ImageminWebpackPlugin({
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true,
+        }),
+        ImageminPngQuant({
+          quality: [0.3, 0.5],
+        }),
+      ],
     }),
   ],
 };

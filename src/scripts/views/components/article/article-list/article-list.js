@@ -44,4 +44,6 @@ class ArticleList extends HTMLElement {
   }
 }
 
-customElements.define('article-list', ArticleList);
+if (!customElements.get('article-list', ArticleList)) {
+  customElements.define('article-list', ArticleList);
+}

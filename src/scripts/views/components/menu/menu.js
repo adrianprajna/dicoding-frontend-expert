@@ -22,4 +22,6 @@ class Menu extends HTMLElement {
   }
 }
 
-customElements.define('restaurant-menu', Menu);
+if (!customElements.get('restaurant-menu')) {
+  customElements.define('restaurant-menu', Menu);
+}

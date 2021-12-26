@@ -12,4 +12,6 @@ class SkeletonCard extends HTMLElement {
   }
 }
 
-customElements.define('skeleton-card', SkeletonCard);
+if (!customElements.get('skeleton-card')) {
+  customElements.define('skeleton-card', SkeletonCard);
+}

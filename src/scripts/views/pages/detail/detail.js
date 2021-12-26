@@ -6,8 +6,9 @@ import UrlParser from '../../../routes/url-parser';
 import RestaurantData from '../../../data/restaurant-data';
 import API_ENDPOINT from '../../../globals/api-endpoint';
 import ReviewButtonInitiator from '../../../utils/review-button-initiator';
-import LikeButtonInitiator from '../../../utils/like-button-initiator';
+import LikeButtonPresenter from '../../../utils/like-button-presenter';
 import '../../components/error/error';
+import FavoriteRestaurantIdb from '../../../data/favoriterestaurant-idb';
 
 const Detail = {
   render() {
@@ -50,7 +51,7 @@ const Detail = {
     const restaurantCity = document.querySelector('.restaurant-detail__city');
     const restaurantDescription = document.querySelector('.restaurant-detail__description');
 
-    restaurantImage.src = `${API_ENDPOINT.restaurantImage}/${restaurant.pictureId}`;
+    restaurantImage.src = `${API_ENDPOINT.restaurantImage('large')}/${restaurant.pictureId}`;
     restaurantName.innerHTML = restaurant.name;
     restaurantAddress.innerHTML = `${restaurant.address},`;
     restaurantCity.innerHTML = restaurant.city;
@@ -94,7 +95,7 @@ const Detail = {
   },
 
   _initLikeButton(restaurant) {
-    LikeButtonInitiator.init({
+    LikeButtonPresenter.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant: {
         id: restaurant.id,
@@ -104,6 +105,7 @@ const Detail = {
         city: restaurant.city,
         rating: restaurant.rating,
       },
+      favoriteRestaurants: FavoriteRestaurantIdb,
     });
   },
 

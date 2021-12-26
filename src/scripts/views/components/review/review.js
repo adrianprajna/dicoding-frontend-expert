@@ -27,4 +27,6 @@ class ReviewCard extends HTMLElement {
   }
 }
 
-customElements.define('review-card', ReviewCard);
+if (!customElements.get('review-card')) {
+  customElements.define('review-card', ReviewCard);
+}

@@ -26,7 +26,10 @@ class ArticleCard extends HTMLElement {
     const articleDescription = this.shadowRoot.querySelector('.article-item__description');
     const articleRating = this.shadowRoot.querySelector('.article-item__value');
 
-    articleImage.src = `${API_ENDPOINT.restaurantImage}/${this._article.pictureId}`;
+    articleImage.src = `${API_ENDPOINT.restaurantImage('small')}/${this._article.pictureId}`;
+    articleImage.classList.add('lazyload');
+    articleImage.setAttribute('loading', 'lazy');
+
     articleName.innerHTML = `${this._article.name}`;
     articleName.href = `/#/detail/${this._article.id}`;
     articleDescription.innerHTML = truncate(this._article.description);
@@ -39,4 +42,6 @@ class ArticleCard extends HTMLElement {
   }
 }
 
-customElements.define('article-card', ArticleCard);
+if (!customElements.get('article-card')) {
+  customElements.define('article-card', ArticleCard);
+}

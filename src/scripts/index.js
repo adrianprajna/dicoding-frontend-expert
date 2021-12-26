@@ -1,4 +1,6 @@
 import 'regenerator-runtime';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import '../styles/main.scss';
 import './views/components/app-bar/app-bar';
 import './views/components/footer/footer';

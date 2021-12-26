@@ -1,10 +1,12 @@
 // Karma configuration
 // Generated on Fri Jul 03 2020 20:15:52 GMT+0700 (Western Indonesia Time)
+const webpackConfig = require('./webpack.common.js');
+
 module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: `${__dirname}/`,
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -29,6 +31,9 @@ module.exports = function (config) {
       // (you don't need to specify the entry option)
       // webpack watches dependencies
       // webpack configuration
+      resolve: webpackConfig.resolve,
+      module: webpackConfig.module,
+      plugins: webpackConfig.plugins,
       devtool: 'inline-source-map',
       mode: 'development',
     },

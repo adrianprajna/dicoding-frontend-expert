@@ -27,7 +27,7 @@ const Detail = {
     restaurantContent.innerHTML = `
       <section class="no-favorite-restaurant">
         <img src=${Image} alt="placeholder favorite">
-        <h2>There are no favorite restaurant!</h2>
+        <h2 class="favorite-restaurant__not__found">There are no favorite restaurant!</h2>
       </section>
     `;
   },
